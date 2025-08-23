@@ -1,6 +1,5 @@
 .env
 /generated
-flake.lock
 
 # Logs
 logs
