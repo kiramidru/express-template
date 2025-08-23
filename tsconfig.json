@@ -1,0 +1,41 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "baseUrl": "./src",
+    "paths": {
+      "*": ["*"]
+    },
+      "exclude": ["node_modules", "dist"]
+
+
+    // Environment Settings
+    "module": "NodeNext",
+    "target": "ES2022",
+
+    // Type checking
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Module resolution & interoperability
+    "esModuleInterop": true,          // For CommonJS impors
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "moduleResolution": "nodenext",   // Node ESM module resolution
+    
+    // Backend-specific
+    "isolatedModules": false,
+    "verbatimModuleSyntax": false
+  }
+}
