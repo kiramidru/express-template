@@ -1,12 +1,7 @@
 import { generateHash } from "utils/bcrypt";
 import * as userModel from "models/user.model";
 import { ApiError } from "errors/api.error";
-
-interface CreateUserInput {
-    email: string;
-    password: string;
-    name?: string;
-}
+import { CreateUserInput } from "dto/user.dto";
 
 export async function createUser(data: CreateUserInput) {
     const existingUser = await userModel.findUserByEmail(data.email);

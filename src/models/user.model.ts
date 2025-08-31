@@ -1,5 +1,5 @@
 import prisma from "prisma";
-import { CreateUserInput } from "services/user.service";
+import { CreateUserInput } from "dto/user.dto";
 
 export async function createUser(data: CreateUserInput) {
     return await prisma.user.create({ data });
