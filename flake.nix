@@ -3,16 +3,18 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/fbcf476f790d8a217c3eab4e12033dc4";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b";
   };
 
-  outputs = { nixpkgs, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system};
-      in {
-        # enables use of `nix shell`
+  outputs =
+    { nixpkgs, flake-utils, ... }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+      {
         devShells.default = pkgs.mkShell {
-          # add things you want in your shell here
           buildInputs = with pkgs; [
             nodejs
             openssl
@@ -27,6 +29,6 @@
             export PRISMA_FMT_BINARY="${pkgs.prisma-engines}/bin/prisma-fmt"
           '';
         };
-      });
+      }
+    );
 }
-
